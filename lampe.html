@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lampe</title>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+<p style="margin-left: auto ; margin-right: auto;">
+	<img id="lampe" onclick="changeImage()" src="lampe_off.jpg" width="300" height="250">
+</p>
+
+<p style="margin-left: auto ; margin-right: auto;">
+	<h2 style="color: blue";>Cliquer pour changer d'état</h2>
+</p>
+
+<script>
+function changeImage() {
+  var image = document.getElementById('lampe');
+  if (image.src.match("lampe_on.jpg")) {
+    image.src = "lampe_off.jpg";
+  } else {
+    image.src = "lampe_on.jpg";
+  }
+}
+</script>
+
+</body>
+</html>
