@@ -1,0 +1,91 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title>Formulaires EX1 JavaScript</title>
+<meta charset= "utf-8">
+<link rel="stylesheet" href="styles. css">
+<script language="javaScript">
+	function calculersalaire(){
+		var sal=document.getElementById("sal").value;
+        var impot=sal*0.18;
+        document.getElementById("imp").value=impot.toFixed(2);
+        var assur=sal*0.07;
+        document.getElementById("assu").value=assur.toFixed(2);
+        var pension=sal*0.05;
+        document.getElementById("pens").value=pension.toFixed(2);
+        var forma =document.getElementById("forma").value;
+        var total =sal-impot-assur+pension;
+        if(document.getElementById("forma").checked){
+        	total = total + 100;
+        }
+        if (document.getElementById("trajet").checked) {
+        	total = total + 150;
+        }
+        if(document.getElementById("xx").checked){
+        	total= total * 1.02;
+        }
+        document.getElementById("salnet").value=total.toFixed(2);
+    }
+	function reset(){
+		document.getElementaryById("sal").value = 0;
+		document.getElementaryById("imp").value = 0;
+		document.getElementaryById("assu").value = 0;
+		document.getElementaryById("pens").value = 0;
+		document.getElementaryById("forma").value = 0;
+		document.getElementaryById("trajet").value = 0;
+		document.getElementaryById("salnet").value = 0;
+
+	}
+</script>
+</head>
+
+<body onload="reset()">
+
+<h1>Calcul salaire</h1>
+<h3>Formule de calcul</h3>
+
+<form method="post" action="#">
+	<table>
+		<tr>
+			<td>Salaire brut</td>
+			<td><input name="salaire" type="text" id="sal"></td>
+		</tr>
+		<tr>
+			<td>impôt sur revenu</td>
+			<td><input name="impot" type="text" id="imp"></td>
+		</tr>
+		<tr>
+			<td>Assurance</td>
+			<td><input name="Assurance" type="text" id="assu"></td>
+		</tr>
+		<tr>
+			<td>Pension</td>
+			<td><input name="pension" type="text" id="pens"></td>
+		</tr>
+		<tr>
+			<td>Formation</td>
+			<td><input name="forma" type="checkbox" id="forma"></td>
+		</tr>
+		<tr>
+			<td>Trajet sup à 100km</td>
+			<td><input name="trajet" type="checkbox" id="trajet"></td>
+		</tr>
+				<tr>
+			<td><input name="sexe" type="radio" id="xy">Homme</td>
+			<td><input name="sexe" type="radio" id="xx">Femme</td>
+		</tr>
+		<tr>
+			<td>Salaire net</td>
+			<td><input name="salnet" type="text" id="salnet"></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="butt" value="Calculer" onclick="calculersalaire()">
+			</td>
+			<td><input type="button" name="butt" value="Effacer" onclick="reset()">
+			</td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

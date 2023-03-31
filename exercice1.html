@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Convertion Monétaire</title>
+</head>
+<body onload="reset()">
+
+<h1>Convertion Monétaire</h1>
+
+<form method="POST" action="#">
+    <table>
+    <tr>
+        <td>Valeur en Euros(€)</td>
+        <td><input name="euros" type="number" id="euros"></td>
+    </tr>
+    <tr>
+        <td>Valeur en Dollars américains($)</td>
+        <td><input name="dollars" type="number" id="dollars"></td>
+    </tr>
+    <tr>
+        <td>Valeur en livres Sterling(£)</td>
+        <td><input name="livres" type="number" id="livres"></td>
+    </tr>
+    <tr>
+        <td><input name="butt" type="button" value="Calculer" id="calc" onclick="ConvertionMonnaie()"></td>
+        <td><input name="butt" type="button" value="Effacer" id="rest" onclick="reset()"></td>
+        
+    </tr>
+</table>
+</form>
+<br/><br/>
+
+<script>
+    function ConvertionMonnaie() {
+        //document.write("<h1>Salaire net</h1>");
+
+        var fr = document.getElementById("euros").value;
+        //alert(euros);
+        console.log(euros);
+        if (fr > 0) {
+        var us = fr * 1.08;
+        document.getElementById("dollars").value = us.toFixed(2);
+        var sterling = fr * 0.89;
+        document.getElementById("livres").value = sterling.toFixed(2);
+    }else {
+    alert("Ce chiffre doit être positif!");
+    }
+    }
+    
+
+    function reset() {
+        document.getElementById("euros").value = 0;
+        document.getElementById("dollars").value = 0;
+        document.getElementById("livres").value = 0;
+    }
+</script>
+</body>
+</html>
